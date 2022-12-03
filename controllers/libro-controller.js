@@ -61,7 +61,10 @@ const post_libro = async (req, res) => {
 const get_libro = async (req, res) => {
     try {
     const book = await Book.find();
-    res.json(book);
+    res.render('lib', {
+        data: book
+    });
+    console.log(book)
     }catch(err) {
         return res.status(404).json({
             ok: false,
